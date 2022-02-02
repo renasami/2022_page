@@ -3,7 +3,7 @@ import AuthTemplate from "../../templates/AuthTemplate"
 import { GoogleAuthProvider, EmailAuthProvider } from "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
 import { auth } from "../../../firebase/index"
-
+import {Link} from "react-router-dom"
 const Login:FC = () => {
     useEffect(()=> {
         const user = auth.currentUser
@@ -30,7 +30,7 @@ const Login:FC = () => {
                 <br/>
                 <p>ログインしてください</p>
                 <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
-                <p>初めての人は<span><a href="/">こちら</a></span></p>
+                <p>初めての人は<span><Link to="/register">こちら</Link></span></p>
             </AuthTemplate>
         </>
     )
