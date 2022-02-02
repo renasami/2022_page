@@ -1,13 +1,10 @@
 import {FC, useEffect} from "react";
 import AuthTemplate from "../../templates/AuthTemplate"
-// import firebaseApp from "../../../firebase";
-import {getAuth} from "firebase/auth"
 import { GoogleAuthProvider, EmailAuthProvider } from "firebase/auth";
 import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-
+import { auth } from "../../../firebase/index"
 
 const Login:FC = () => {
-    const auth = getAuth();
     useEffect(()=> {
         const user = auth.currentUser
         console.log(user)
@@ -16,7 +13,7 @@ const Login:FC = () => {
         }else{
             console.log("none")
         }
-    },[auth])
+    },[])
     const uiConfig = {
         signInFlow: 'popup',
         signInSuccessUrl: "/",
