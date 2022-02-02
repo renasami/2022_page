@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
-import UserTmpl from "./components/templates/BasicTemplate"
+import Login from "./components/pages/Login"
 function App() {
   return (
     <div className="App">
-      <UserTmpl/>
+      <Login/>
     </div>
   );
 }
