@@ -1,3 +1,8 @@
 .auth {
     text-align: center;
+    justify-content: center;
+}
+.innerForm {
+    width:50%;
+    margin-left:25%;
 }

@@ -1,39 +1,76 @@
-import {FC, useEffect} from "react";
-import AuthTemplate from "../../templates/AuthTemplate"
+import { FC, useEffect } from "react";
+import AuthTemplate from "../../templates/AuthTemplate";
 import { GoogleAuthProvider, EmailAuthProvider } from "firebase/auth";
-import StyledFirebaseAuth from 'react-firebaseui/StyledFirebaseAuth';
-import { auth } from "../../../firebase/index"
-import {Link} from "react-router-dom"
-const Login:FC = () => {
-    useEffect(()=> {
-        const user = auth.currentUser
-        console.log(user)
-        if (user) {
-            console.log("User")
-        }else{
-            console.log("none")
-        }
-    },[])
-    const uiConfig = {
-        signInFlow: 'popup',
-        signInSuccessUrl: "/",
-        signInOptions: [
-            GoogleAuthProvider.PROVIDER_ID,
-            EmailAuthProvider.PROVIDER_ID,
-        ],
+import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
+import { auth } from "../../../firebase/index";
+import { Link } from "react-router-dom";
+import { Form, Input, Button } from "antd";
+const Login: FC = () => {
+  useEffect(() => {
+    const user = auth.currentUser;
+    console.log(user);
+    if (user) {
+      console.log("User");
+    } else {
+      console.log("none");
     }
-    
-    return (
-        <>
-            <AuthTemplate>
-                <h1>ログインページ</h1>
-                <br/>
-                <p>ログインしてください</p>
-                <StyledFirebaseAuth uiConfig={uiConfig} firebaseAuth={auth} />
-                <p>初めての人は<span><Link to="/register">こちら</Link></span></p>
-            </AuthTemplate>
-        </>
-    )
-}
+  }, []);
+  const uiConfig = {
+    signInFlow: "popup",
+    signInSuccessUrl: "/",
+    signInOptions: [
+      GoogleAuthProvider.PROVIDER_ID,
+      EmailAuthProvider.PROVIDER_ID,
+    ],
+  };
 
-export default Login
+  return (
+    <>
+      <AuthTemplate>
+        <h1>ログインページ</h1>
+        <br />
+        <p>ログインしてください</p>
+        <Form
+          className="form"
+          name="basic"
+          layout="vertical"
+          autoComplete="off"
+        >
+          <div className="innerForm">
+            <Form.Item
+              label="Username"
+              name="username"
+              rules={[
+                { required: true, message: "ユーザ名(id)を入れてください。" },
+              ]}
+            >
+              <Input />
+            </Form.Item>
+            <Form.Item
+              label="Password"
+              name="password"
+              rules={[
+                { required: true, message: "パスワードを入力してください。" },
+              ]}
+            >
+              <Input.Password />
+            </Form.Item>
+          </div>
+          {/* <Form.Item > */}
+          <Button type="primary" htmlType="submit">
+            Submit
+          </Button>
+          {/* </Form.Item> */}
+        </Form>
+        <p>
+          初めての人は
+          <span>
+            <Link to="/register">こちら</Link>
+          </span>
+        </p>
+      </AuthTemplate>
+    </>
+  );
+};
+
+export default Login;
