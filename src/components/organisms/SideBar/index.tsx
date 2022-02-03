@@ -10,6 +10,8 @@ import 'antd/dist/antd.css';
 import './index.css';
 import myjlogo from "../../../imgs/myjlab-logo.png";
 import myjicon from "../../../imgs/myjlab-icon.png";
+import {Link} from "react-router-dom"
+
 const SideBar:FC = () => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
     const onCollapse = () => {
@@ -29,13 +31,13 @@ const SideBar:FC = () => {
           
           <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
             <Menu.Item key="1" icon={<UserOutlined />}>
-              top
+              <Link to="/">top</Link>
             </Menu.Item>
             <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              course
+              <Link to="/course">course</Link>
             </Menu.Item>
             <Menu.Item key="3" icon={<UploadOutlined />}>
-              demo
+              <Link to="/demo">demo</Link>
             </Menu.Item>
           </Menu>
 

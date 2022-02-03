@@ -5,13 +5,15 @@ import 'antd/dist/antd.css';
 import './index.css';
 import { Layout } from "antd";
 
-const BasicTemplate:FC = () => {
+const BasicTemplate:FC = ({children}) => {
     
     return (
       <>
       <Layout style={{ minHeight: '100vh' }}>
         <SideBar/>
-        <Header/>
+        <Header>
+        {children}
+        </Header>
       </Layout>
       </>
     );

@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import './App.css';
 import Login from "./components/pages/Login"
 import Register from './components/pages/Register';
 import Home from "./components/pages/Home"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-function App() {
+import AuthTemplate from "./components/templates/AuthTemplate"
+import Course from './components/pages/Course';
+import Demo from './components/pages/Demo';
+const App:FC = () => {
   return (
     <div className="App">
       <BrowserRouter>
@@ -13,6 +15,8 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path="/register" element={<Register/>} />
         <Route path="/" element={<Home/>} />
+        <Route path="/course" element={<Course/>} />
+        <Route path="/demo" element={<Demo/>} />
       </Routes>
       </BrowserRouter>
     </div>
