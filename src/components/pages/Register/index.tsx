@@ -9,11 +9,22 @@ const Register: FC = () => {
     <>
       <AuthTemplate>
         <div className="auth">
-          <h1>登録ページ</h1>
+          <h1>初回ページ</h1>
           <br />
           <p>登録してください</p>
+          <p>メールアドレスはパスワードを忘れた場合に必要になります</p>
           <Form className="form" name="basic" layout="vertical" autoComplete="off">
             <div className="innerForm" >
+            <Form.Item
+              label="Email"
+              name="Email"
+              rules={[
+                { required: true, message: "メールアドレスを入れてください" },
+              ]}
+              
+            >
+              <Input />
+            </Form.Item>
             <Form.Item
               label="Username"
               name="username"
