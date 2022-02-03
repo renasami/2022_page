@@ -1,6 +1,5 @@
 import { FC, useEffect } from "react";
 import AuthTemplate from "../../templates/AuthTemplate";
-import { GoogleAuthProvider, EmailAuthProvider } from "firebase/auth";
 import { auth } from "../../../firebase/index";
 import { Link } from "react-router-dom";
 import { Form, Input, Button } from "antd";

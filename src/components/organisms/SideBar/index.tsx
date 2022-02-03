@@ -14,12 +14,16 @@ import {Link} from "react-router-dom"
 
 const SideBar:FC = () => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
+    const [isAdmin, setIsAdmin] = useState<boolean>(false);
+    const { Sider } = Layout;
     const onCollapse = () => {
         setCollapsed(!collapsed);
     }
-    const { Sider } = Layout;
+    const changeAuthority = () => {
+      setIsAdmin(!isAdmin);
+    }
     // const { SubMenu } = Menu;
-
+    
     return (
         <>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} style={{ padding: 0, backgroundColor:"white" }}>
@@ -39,6 +43,18 @@ const SideBar:FC = () => {
             <Menu.Item key="3" icon={<UploadOutlined />}>
               <Link to="/demo">demo</Link>
             </Menu.Item>
+            {
+              isAdmin ? 
+              <Menu.Item key="admin" icon={<UserOutlined />}>
+                <Link to="/admin">admin</Link>
+              </Menu.Item>:null
+            }
+            {
+              window.location.hostname === "localhost" ? 
+              <Menu.Item key="extra" icon={<UserOutlined />}>
+                  <p onClick={changeAuthority}>change</p>
+              </Menu.Item> : null
+            }
           </Menu>
 
         </Sider>
