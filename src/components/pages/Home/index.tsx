@@ -12,7 +12,7 @@ const Home:FC = () => {
             <p>react,typescript,ant design,etc... で作っております</p>
             <p>アプリのコードは<span><a href="https://github.com/renasami/spring_training_2022">こちら</a></span>にあります</p>
             <p>頑張ってください。テキストでの質問はいつでも受け付けています!</p>
-            <p>sei もしくは 阿左見 まで!!!</p>
+            {/* <p>sei もしくは 阿左見 まで!!!</p> */}
             </BasicTemplate>
         </>
     )
