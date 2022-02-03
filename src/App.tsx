@@ -4,7 +4,6 @@ import Login from "./components/pages/Login"
 import Register from './components/pages/Register';
 import Home from "./components/pages/Home"
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import AuthTemplate from "./components/templates/AuthTemplate"
 import Course from './components/pages/Course';
 import Demo from './components/pages/Demo';
 const App:FC = () => {

@@ -1,7 +1,6 @@
 import { FC, useEffect } from "react";
 import AuthTemplate from "../../templates/AuthTemplate";
 import { GoogleAuthProvider, EmailAuthProvider } from "firebase/auth";
-import StyledFirebaseAuth from "react-firebaseui/StyledFirebaseAuth";
 import { auth } from "../../../firebase/index";
 import { Link } from "react-router-dom";
 import { Form, Input, Button } from "antd";
@@ -15,15 +14,7 @@ const Login: FC = () => {
       console.log("none");
     }
   }, []);
-  const uiConfig = {
-    signInFlow: "popup",
-    signInSuccessUrl: "/",
-    signInOptions: [
-      GoogleAuthProvider.PROVIDER_ID,
-      EmailAuthProvider.PROVIDER_ID,
-    ],
-  };
-
+  
   return (
     <>
       <AuthTemplate>

@@ -29,7 +29,7 @@ const SideBar:FC = () => {
             :<img src={myjlogo} className="logo" alt="none"/>
           }
           
-          <Menu theme="light" mode="inline" defaultSelectedKeys={['1']}>
+          <Menu theme="light" mode="inline" >
             <Menu.Item key="1" icon={<UserOutlined />}>
               <Link to="/">top</Link>
             </Menu.Item>

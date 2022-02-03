@@ -1,4 +1,5 @@
 import { FC } from "react"
+import CourseCard from "../../molcules/CourseCard"
 import BasicTemplate from "../../templates/BasicTemplate"
 
 const Courese:FC = () => {
@@ -6,6 +7,7 @@ const Courese:FC = () => {
         <>
             <BasicTemplate>
             <h1>Courese</h1>
+            <CourseCard/>
             </BasicTemplate>
         </>
     )
