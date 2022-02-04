@@ -21,7 +21,6 @@ const Register: FC = () => {
               rules={[
                 { required: true, message: "メールアドレスを入れてください" },
               ]}
-              
             >
               <Input />
             </Form.Item>
@@ -31,7 +30,6 @@ const Register: FC = () => {
               rules={[
                 { required: true, message: "ユーザ名(id)を入れてください。" },
               ]}
-              
             >
               <Input />
             </Form.Item>
