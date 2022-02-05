@@ -66,7 +66,7 @@ const Admin:FC = () => {
               overflow: 'hidden',
               textOverflow: 'ellipsis',
             },
-            content: '終了割合',
+            content: '%',
           },
         },
       };
