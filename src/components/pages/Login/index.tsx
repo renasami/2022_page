@@ -1,8 +1,12 @@
-import { FC, useEffect } from "react";
+import { FC, useEffect, useState } from "react";
 import AuthTemplate from "../../templates/AuthTemplate";
-import { auth } from "../../../firebase/index";
+import { auth } from "../../../firebase";
 import { Link } from "react-router-dom";
 import { Form, Input, Button } from "antd";
+import {signInWithEmailAndPassword} from "firebase/auth"
+import AuthImput from "../../molcules/AuthImput";
+import { useNavigate } from "react-router-dom";
+
 const Login: FC = () => {
   useEffect(() => {
     const user = auth.currentUser;
@@ -13,6 +17,34 @@ const Login: FC = () => {
       console.log("none");
     }
   }, []);
+
+  const [email,setEmail] = useState<string>("")
+  const [password,setPassword] = useState<string>("")
+  const configs = [{
+    state:email,
+    setState:setEmail,
+    message:"メールアドレスを入れてください",
+    label:"Email",
+    hide:false
+  },
+  {
+    state:password,
+    setState:setPassword,
+    message:"パスワードを入れてください",
+    label:"Password",
+    hide:true
+  }
+]
+  const navigator = useNavigate()
+  const login = () => {
+    signInWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      navigator("/")
+    })
+    .catch((error) => {
+    console.log(error.code,error.message)
+    });
+  }
   
   return (
     <>
@@ -27,30 +59,11 @@ const Login: FC = () => {
           autoComplete="off"
         >
           <div className="innerForm">
-            <Form.Item
-              label="Username"
-              name="username"
-              rules={[
-                { required: true, message: "ユーザ名(id)を入れてください。" },
-              ]}
-            >
-              <Input />
-            </Form.Item>
-            <Form.Item
-              label="Password"
-              name="password"
-              rules={[
-                { required: true, message: "パスワードを入力してください。" },
-              ]}
-            >
-              <Input.Password />
-            </Form.Item>
+          {configs.map((conf,i) => <AuthImput key={i} {...conf}/>)}
           </div>
-          {/* <Form.Item > */}
-          <Button type="primary" htmlType="submit">
+          <Button type="primary" htmlType="submit" onClick={login}>
             Submit
           </Button>
-          {/* </Form.Item> */}
         </Form>
         <p>
           初めての人は
