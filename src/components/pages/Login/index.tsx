@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import AuthTemplate from "../../templates/AuthTemplate";
 import { auth } from "../../../firebase";
 import { Link } from "react-router-dom";
-import { Form, Input, Button } from "antd";
+import { Form,  Button } from "antd";
 import {signInWithEmailAndPassword} from "firebase/auth"
 import AuthImput from "../../molcules/AuthImput";
 import { useNavigate } from "react-router-dom";
