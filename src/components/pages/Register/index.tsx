@@ -5,9 +5,8 @@ import { Form, Button } from "antd";
 import "./style.css"
 import AuthImput from "../../molcules/AuthImput"
 import {auth} from "../../../firebase"
-import { createUserWithEmailAndPassword } from "firebase/auth"
-import { createBrowserHistory } from 'history';
-import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 
 
@@ -39,21 +38,19 @@ const Register: FC = () => {
     },
     
   ]
-  const history = useHistory();
+  const navigate = useNavigate();
   const register = () => {
-    console.log("register")
-    history.push("/login")
-    // createUserWithEmailAndPassword(auth, email, password)
-    // .then((userCredential) => {
-    //   const user = userCredential.user;
-    //   console.log(user)
-    //   history.push("/login")
-    // })
-    // .catch((error) => {
-    //   const errorCode = error.code;
-    //   const errorMessage = error.message;
-    //   console.log(errorCode, errorMessage)
-    // });
+    createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      const user = userCredential.user;
+      console.log(user)
+      navigate("/login")
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorCode, errorMessage)
+    });
 
   }
   return (
