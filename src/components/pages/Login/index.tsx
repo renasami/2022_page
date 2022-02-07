@@ -6,6 +6,8 @@ import { Form,  Button } from "antd";
 import {signInWithEmailAndPassword} from "firebase/auth"
 import AuthImput from "../../molcules/AuthImput";
 import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router";
+import { useAuthContext } from "../../../context";
 
 const Login: FC = () => {
   useEffect(() => {
@@ -45,6 +47,9 @@ const Login: FC = () => {
     console.log(error.code,error.message)
     });
   }
+
+  const { user } = useAuthContext();
+  if(user) return <Navigate to="/" />
   
   return (
     <>

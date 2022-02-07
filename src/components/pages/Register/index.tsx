@@ -7,7 +7,8 @@ import AuthImput from "../../molcules/AuthImput"
 import {auth} from "../../../firebase"
 import { useNavigate } from "react-router-dom";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-
+import { Navigate } from "react-router";
+import { useAuthContext } from "../../../context";
 
 
 const Register: FC = () => {
@@ -53,6 +54,10 @@ const Register: FC = () => {
     });
 
   }
+
+  const { user } = useAuthContext();
+  if(user) return <Navigate to="/" />
+  
   return (
     <>
       <AuthTemplate>
