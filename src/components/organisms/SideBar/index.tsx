@@ -1,9 +1,10 @@
 import {FC, useState} from "react"
-import { Layout, Menu } from 'antd';
+import { Layout, Menu,Button } from 'antd';
 import {
   UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
+  LogoutOutlined,
 
 } from '@ant-design/icons';
 import 'antd/dist/antd.css';
@@ -11,7 +12,7 @@ import './index.css';
 import myjlogo from "../../../imgs/myjlab-logo.png";
 import myjicon from "../../../imgs/myjlab-icon.png";
 import {Link} from "react-router-dom"
-
+import {auth} from "../../../firebase"
 const SideBar:FC = () => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
     const [isAdmin, setIsAdmin] = useState<boolean>(false);
@@ -23,7 +24,9 @@ const SideBar:FC = () => {
       setIsAdmin(!isAdmin);
     }
     // const { SubMenu } = Menu;
-    
+    const logout = () => {
+      auth.signOut();
+    }
     return (
         <>
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} style={{ padding: 0, backgroundColor:"white" }}>
@@ -56,7 +59,11 @@ const SideBar:FC = () => {
               </Menu.Item> : null
             }
           </Menu>
-
+          <Menu style={{position:"absolute",bottom:80}}>
+            <Menu.Item onClick={logout} icon={<LogoutOutlined />}>
+              <Link to="/login">ログアウト</Link>
+            </Menu.Item>
+          </Menu>
         </Sider>
     </>
     )
