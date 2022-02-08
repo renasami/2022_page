@@ -3,10 +3,6 @@ import { auth } from '../../../firebase'
 import {User} from '../../../type'
 import {AuthContext,useAuthContext} from "../../../context"
 
-type Value = {
-    user: User
-}
-
 const AuthProvider:FC = ({children}) => {
 
     const [user,setUser] = useState<any>(null)

@@ -10,7 +10,7 @@ const Courese: FC = () => {
 
   const textData = [
     {
-      link: "",
+      link: "fa",
       text: "01",
     },
     {
@@ -18,7 +18,7 @@ const Courese: FC = () => {
       text: "login",
     },
     {
-        link: "",
+        link: "fa",
         text: "01",
       },
       {
@@ -26,7 +26,7 @@ const Courese: FC = () => {
         text: "login",
       },
       {
-        link: "",
+        link: "s",
         text: "01",
       },
       {

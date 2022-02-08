@@ -19,7 +19,7 @@ const CourseCard:FC<Props>  = ({link,text}) => {
             src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
           />
         }
-        actions={[<Link to={"/"+link}><EllipsisOutlined /></Link>]}
+        actions={[<Link to={"/course/"+link}><EllipsisOutlined /></Link>]}
       >
           <p>{text}</p>
       </Card>

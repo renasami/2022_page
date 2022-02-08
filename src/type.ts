@@ -3,3 +3,10 @@ export type User = {
     isAdmin: boolean;
     isLogin: boolean;
 }
+
+export type Course = {
+    title: string,
+    thumbnail?: string,
+    phase?: number,
+    index?: number
+}
