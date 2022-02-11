@@ -4,9 +4,16 @@ export type User = {
     isLogin: boolean;
 }
 
-export type Course = {
+export type Courses = {
+    title: string;
+    phase: string;
+    index: number;
+    dir: string;
+    lectures:Lecture[]
+}
+
+export type Lecture = {
     title: string,
     thumbnail?: string,
-    phase?: number,
     index?: number
 }

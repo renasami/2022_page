@@ -1,8 +1,7 @@
----
-title: サンプル
-thumbnail:　null
-initialCourse: true
-phase: 0
----
-
 # this is sample text
+
+*これはサンプルコースの1回めです。*
+
+頑張っていきましょう。
+
+俺天才

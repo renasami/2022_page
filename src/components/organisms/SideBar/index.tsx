@@ -1,5 +1,5 @@
 import {FC, useState} from "react"
-import { Layout, Menu,Button } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
   UserOutlined,
   VideoCameraOutlined,
@@ -58,9 +58,7 @@ const SideBar:FC = () => {
                   <p onClick={changeAuthority}>change</p>
               </Menu.Item> : null
             }
-          </Menu>
-          <Menu style={{position:"absolute",bottom:80}}>
-            <Menu.Item onClick={logout} icon={<LogoutOutlined />}>
+             <Menu.Item onClick={logout} icon={<LogoutOutlined />}>
               <Link to="/login">ログアウト</Link>
             </Menu.Item>
           </Menu>

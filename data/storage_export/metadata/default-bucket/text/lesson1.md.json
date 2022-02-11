@@ -1,0 +1,19 @@
+{
+  "name": "text/lesson1.md",
+  "bucket": "default-bucket",
+  "contentType": "text/markdown",
+  "metageneration": 1,
+  "generation": 1644331696037,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "downloadTokens": [
+    "7de9908e-f1ca-480f-99fb-f2fedd0d14e9"
+  ],
+  "timeCreated": "2022-02-08T14:48:16.036Z",
+  "updated": "2022-02-08T14:48:16.037Z",
+  "size": 46,
+  "md5Hash": "JvwkFOeA9iR/zk7wIP/bfg==",
+  "crc32c": "2987895843"
+}

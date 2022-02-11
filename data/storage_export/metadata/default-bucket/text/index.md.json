@@ -1,0 +1,19 @@
+{
+  "name": "text/index.md",
+  "bucket": "default-bucket",
+  "contentType": "text/markdown",
+  "metageneration": 1,
+  "generation": 1644331696022,
+  "storageClass": "STANDARD",
+  "etag": "someETag",
+  "contentDisposition": "inline",
+  "contentEncoding": "identity",
+  "downloadTokens": [
+    "f53eb99c-c79a-4228-858d-e147538b187d"
+  ],
+  "timeCreated": "2022-02-08T14:48:16.021Z",
+  "updated": "2022-02-08T14:48:16.021Z",
+  "size": 97,
+  "md5Hash": "juH2hbLYIKX0DnxuW0xDbw==",
+  "crc32c": "2964746495"
+}

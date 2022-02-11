@@ -1,38 +1,19 @@
-import { FC } from "react"
+import { FC, useEffect, useState } from "react"
 import CourseCard from "../../molcules/CourseCard"
 import BasicTemplate from "../../templates/BasicTemplate"
 import { Row, Col, Divider } from 'antd';
 import { useAuthContext } from "../../../context";
 import { Navigate } from "react-router";
+
 const Courese: FC = () => {
 
   const { user } = useAuthContext();
-
+ 
   const textData = [
     {
-      link: "fa",
-      text: "01",
+      link: "sample",
+      text: "sample",
     },
-    {
-      link: "login",
-      text: "login",
-    },
-    {
-        link: "fa",
-        text: "01",
-      },
-      {
-        link: "login",
-        text: "login",
-      },
-      {
-        link: "s",
-        text: "01",
-      },
-      {
-        link: "login",
-        text: "login",
-      },
   ];
   if(!user) return <Navigate to="/login" />
   return (
