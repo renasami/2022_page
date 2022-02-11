@@ -15,5 +15,5 @@ export type Courses = {
 export type Lecture = {
     title: string,
     thumbnail?: string,
-    index?: number
+    index: number
 }

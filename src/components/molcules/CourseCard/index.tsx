@@ -2,13 +2,10 @@ import { FC } from "react";
 import { Card } from "antd";
 import { EllipsisOutlined } from "@ant-design/icons";
 import { Link } from "react-router-dom"
+import {Courses} from "../../../type"
 
-type Props = {
-    link:string
-    text:string
-}
 
-const CourseCard:FC<Props>  = ({link,text}) => {
+const CourseCard:FC<Courses>  = ({...props}) => {
   return (
     <>
       <Card
@@ -19,9 +16,9 @@ const CourseCard:FC<Props>  = ({link,text}) => {
             src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
           />
         }
-        actions={[<Link to={"/course/"+link}><EllipsisOutlined /></Link>]}
+        actions={[<Link to={"/course/"+ props.dir}><EllipsisOutlined /></Link>]}
       >
-          <p>{text}</p>
+          <p><b>{props.title}</b></p>
       </Card>
     </>
   );

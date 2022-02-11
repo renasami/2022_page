@@ -4,17 +4,12 @@ import BasicTemplate from "../../templates/BasicTemplate"
 import { Row, Col, Divider } from 'antd';
 import { useAuthContext } from "../../../context";
 import { Navigate } from "react-router";
-
+import {courseList} from "../../../texts/configs"
 const Courese: FC = () => {
 
   const { user } = useAuthContext();
  
-  const textData = [
-    {
-      link: "sample",
-      text: "sample",
-    },
-  ];
+
   if(!user) return <Navigate to="/login" />
   return (
     <>
@@ -23,7 +18,7 @@ const Courese: FC = () => {
           <h2>Courses</h2>
         </Divider>
         <Row gutter={[16, 16]}>
-          {textData.map((data, i) => {
+          {courseList.map((data, i) => {
             return (
               <Col span={6}>
                 <CourseCard {...data} key={i} />

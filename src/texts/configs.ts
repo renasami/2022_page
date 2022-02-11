@@ -74,7 +74,7 @@ export const courseList:Courses[] = [
         title: "オブジェクト指向",
         phase:"0",
         index:3,
-        dir:"1",
+        dir:"obj",
         lectures:[
             {
                 title: "1/3",
