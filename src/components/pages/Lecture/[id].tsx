@@ -4,7 +4,7 @@ import BasicTemplate from "../../templates/BasicTemplate"
 import ReactMarkdown from "react-markdown";
 import { Button } from "antd";
 import { courseList  } from "../../../texts/configs";
-import {Courses} from "../../../type"
+import {Lecture} from "../../../type"
 
 
 
@@ -12,34 +12,37 @@ const TaggedCourse:FC = () => {
     //現在のレクチャーの内容
     const [text,setText] = useState<string>("");
     //全てのレクチャーの内容を保持
-    const [lectures,setLectres] = useState<any>([]);
+    const [lec,setLectres] = useState<any>([]);
     //現在のコース(lectureのまとまり)を保持
-    const [nowCourse, setNowCourse] = useState<Courses>();
-    const [test,setTest] = useState<any>([]);
+    const [lectureIndex,setLectureIndex] = useState<number>(0);
     let { id } = useParams()
+    const now = courseList.filter(c => c.dir === id)
     const getAllLecture = async () => {
-        const now = courseList.filter(c => c.dir === id)
-        setLectres(now[0].lectures.map(async (lecture) =>{
-            console.log(lecture.index)
+        let contents:string[] = []
+        now[0].lectures.forEach(async (lecture) =>{
             const file = await import(`../../../texts/${id}/${lecture.index}.md`)
             const resp = await fetch(file.default)
-            const contetnt  = await resp.text()
-            setTest([...test,contetnt])
-            return contetnt
-            
-        }))
-        
+            const content  = await resp.text()
+            contents.push(content)
+            setLectres(contents)
+        })
     }
-    const changeLecture = () => {
-        setText(test)
-        console.log("lectures:",Promise.resolve(lectures[0]))
-        console.log("text:",text)
-        console.log(test.toString())
+    const gotoNextLecture = () => {
+        if (lectureIndex === 2 ) setLectureIndex(2)
+        else setLectureIndex(lectureIndex+1)
+        setText(lec[lectureIndex])
+    }
+    const gotoBeforeLecture = () => {
+        if (lectureIndex === 0) setLectureIndex(0)
+        else setLectureIndex(lectureIndex-1)
+        setText(lec[lectureIndex])
     }
     useEffect(() => {
         getAllLecture()
-        console.log(lectures)
     },[])
+    useEffect(() => {   
+        setText(lec[lectureIndex])
+    },[lec])
     // const navigate = useNavigate();
     
     return (
@@ -49,7 +52,8 @@ const TaggedCourse:FC = () => {
                 {text}
                 </ReactMarkdown>
                 {/* <Button onClick={getText}><Link to="/">次に進む</Link></Button> */}
-                <Button onClick={()=>{changeLecture()}}>次に進む</Button>
+                <Button onClick={()=>{gotoBeforeLecture()}}>前に戻る</Button>
+                <Button onClick={()=>{gotoNextLecture()}}>次に進む</Button>
             </BasicTemplate>
         </>
     )
