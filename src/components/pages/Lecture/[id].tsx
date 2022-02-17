@@ -5,7 +5,9 @@ import ReactMarkdown from "react-markdown";
 import { Button } from "antd";
 import { courseList  } from "../../../texts/configs";
 import {Lecture} from "../../../type"
-
+import {highlightComponent} from "../../wrapper/highlightComponent"
+import SyntaxHighlighter from "react-syntax-highlighter";
+import {dark} from 'react-syntax-highlighter/dist/esm/styles/prism'
 
 
 const TaggedCourse:FC = () => {
@@ -48,9 +50,26 @@ const TaggedCourse:FC = () => {
     return (
         <>
             <BasicTemplate>
-                <ReactMarkdown>
-                {text}
-                </ReactMarkdown>
+                <ReactMarkdown
+                children={text}
+                 components={{
+        code({node, inline, className, children, ...props}) {
+          const match = /language-(\w+)/.exec(className || '')
+          return !inline && match ? (
+            <SyntaxHighlighter
+              children={String(children).replace(/\n$/, '')}
+              style={dark}
+              language={match[1]}
+              PreTag="div"
+              // {...props}
+            />
+          ) : (
+            <code className={className} {...props}>
+              {children}
+            </code>
+          )
+        }
+      }}/>
                 {/* <Button onClick={getText}><Link to="/">次に進む</Link></Button> */}
                 <Button onClick={()=>{gotoBeforeLecture()}}>前に戻る</Button>
                 <Button onClick={()=>{gotoNextLecture()}}>次に進む</Button>
