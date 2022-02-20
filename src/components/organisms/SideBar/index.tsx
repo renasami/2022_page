@@ -32,8 +32,8 @@ const SideBar:FC = () => {
         <Sider collapsible collapsed={collapsed} onCollapse={onCollapse} style={{ padding: 0, backgroundColor:"white" }}>
           {
             collapsed ?
-            <img src={myjicon} className="logo" alt="none"/> 
-            :<img src={myjlogo} className="logo" alt="none"/>
+            <img id="myj" src={myjicon} className="logo" alt="none"/> 
+            :<img id="myj" src={myjlogo} className="logo" alt="none"/>
           }
           
           <Menu theme="light" mode="inline" >
