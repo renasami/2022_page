@@ -9,9 +9,10 @@ import TaggedCourse from "./components/pages/Lecture/[id]"
 import Demo from "./components/pages/Demo";
 import Admin from "./components/pages/Admin";
 import AuthProvider from "./components/wrapper/AuthProvider";
+import { doc, setDoc } from "firebase/firestore";
+import { store } from "./firebase"
 
 const App: FC = () => {
-  
   return (
     <div className="App">
       <AuthProvider>

@@ -15,7 +15,7 @@ initializeApp(firebaseConfig)
 const localhost = "http://localhost:"
 if (window.location.hostname === "localhost") {
   connectAuthEmulator(auth,localhost + emulatorPorts["auth"])
-  connectFirestoreEmulator(store,localhost, Number(emulatorPorts["store"]))
+  // connectFirestoreEmulator(store,localhost, Number(emulatorPorts["store"]))
   connectStorageEmulator(storage,localhost, Number(emulatorPorts["storage"]))
 }
 ReactDOM.render(

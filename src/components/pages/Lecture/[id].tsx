@@ -17,7 +17,7 @@ const TaggedCourse: FC = () => {
   const now = courseList.filter((c) => c.dir === id);
   const getAllLecture = async () => {
     let contents: string[] = [];
-    now[0].lectures.forEach(async (lecture,i) => {
+    now[0].lectures.map(async (lecture,i) => {
       const file = await import(`../../../texts/${id}/${i}.md`);
       const resp = await fetch(file.default);
       const content = await resp.text();
@@ -49,20 +49,26 @@ const TaggedCourse: FC = () => {
       <BasicTemplate>
         <MarkdownView text={text} />
         {/* <Button onClick={getText}><Link to="/">次に進む</Link></Button> */}
-        <Button
+        {
+          lectureIndex === 0 ?
+          null :
+          <Button
           onClick={() => {
             gotoBeforeLecture();
           }}
         >
           前に戻る
         </Button>
-        <Button
+        }
+        {
+          lectureIndex === now[0].lectures.length - 1 ?null:<Button
           onClick={() => {
             gotoNextLecture();
           }}
         >
           次に進む
         </Button>
+        }
       </BasicTemplate>
     </div>
   );

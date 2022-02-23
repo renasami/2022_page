@@ -11,7 +11,7 @@ const Demo:FC = () => {
         <>
         <BasicTemplate>
             <h1>Demo</h1>
-            <h3><Link to="/course/1">fas</Link></h3>
+            <h3>coming soon ...</h3>
         </BasicTemplate>
         </>
     )

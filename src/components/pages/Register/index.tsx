@@ -54,7 +54,7 @@ const Register: FC = () => {
     });
 
   }
-
+  
   const { user } = useAuthContext();
   if(user) return <Navigate to="/" />
   
