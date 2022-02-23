@@ -13,17 +13,21 @@ const TaggedCourse: FC = () => {
   //現在のコース(lectureのまとまり)を保持
   const [lectureIndex, setLectureIndex] = useState<number>(0);
   let { id } = useParams();
-  
+  const [flag, setFlag] = useState(false);
   const now = courseList.filter((c) => c.dir === id);
   const getAllLecture = async () => {
     let contents: string[] = [];
-    now[0].lectures.map(async (lecture,i) => {
-      const file = await import(`../../../texts/${id}/${i}.md`);
+    for(var n = 0; n < now[0].lectures.length; n++) {
+      const file = await import(`../../../texts/${id}/${n}.md`);
       const resp = await fetch(file.default);
       const content = await resp.text();
       contents.push(content);
       setLectres(contents);
-    })
+      if( n +1 ===  now[0].lectures.length)setFlag(true)
+    }
+    // now[0].lectures.map(async (lecture,i) => {
+      
+    // })
   };
 
   const gotoNextLecture = () => {
@@ -41,7 +45,7 @@ const TaggedCourse: FC = () => {
   }, []);
   useEffect(() => {
     setText(lec[lectureIndex]);
-  }, [lec]);
+  }, [flag]);
   // const navigate = useNavigate();
 
   return (
@@ -49,9 +53,6 @@ const TaggedCourse: FC = () => {
       <BasicTemplate>
         <MarkdownView text={text} />
         {/* <Button onClick={getText}><Link to="/">次に進む</Link></Button> */}
-        {
-          lectureIndex === 0 ?
-          null :
           <Button
           onClick={() => {
             gotoBeforeLecture();
@@ -59,16 +60,15 @@ const TaggedCourse: FC = () => {
         >
           前に戻る
         </Button>
-        }
-        {
-          lectureIndex === now[0].lectures.length - 1 ?null:<Button
+       
+          <Button
           onClick={() => {
             gotoNextLecture();
           }}
         >
           次に進む
         </Button>
-        }
+        
       </BasicTemplate>
     </div>
   );

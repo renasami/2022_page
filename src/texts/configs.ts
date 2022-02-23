@@ -30,7 +30,7 @@ export const courseList:Courses[] = [
         ]
     },
     {
-        title: "レクチャー1",
+        title: "stage1",
         phase:"0",
         index:2,
         dir:"1",
@@ -48,20 +48,25 @@ export const courseList:Courses[] = [
         ]
     },
     {
-        title: "レクチャー2",
+        title: "stage2",
         phase:"1",
-        index:2,
+        index:3,
         dir:"2",
         lectures:[
             {
-                title: "1/2",
+                title: "1/3",
                 thumbnail:"",
                 index:0
             },
             {
-                title: "2/2",
+                title: "2/3",
                 thumbnail:"",
                 index:1
+            },
+            {
+                title: "3/3",
+                thumbnail:"",
+                index:2
             }
         ]
     },
