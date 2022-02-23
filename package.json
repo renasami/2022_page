@@ -21,6 +21,7 @@
     "markdown-it": "^12.3.2",
     "markdown-it-anchor": "^8.4.1",
     "markdown-it-container": "^3.0.0",
+    "markdown-it-for-inline": "^0.1.1",
     "markdown-it-prism": "^2.2.3",
     "markdown-it-react-component": "^0.5.8",
     "markdown-to-jsx": "^7.1.6",

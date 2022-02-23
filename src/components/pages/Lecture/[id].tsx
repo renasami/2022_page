@@ -13,7 +13,7 @@ const TaggedCourse: FC = () => {
   //現在のコース(lectureのまとまり)を保持
   const [lectureIndex, setLectureIndex] = useState<number>(0);
   let { id } = useParams();
-
+  
   const now = courseList.filter((c) => c.dir === id);
   const getAllLecture = async () => {
     let contents: string[] = [];

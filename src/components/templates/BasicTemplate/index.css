@@ -10,3 +10,10 @@
     [data-theme="dark"] .site-layout .site-layout-background {
       background: #141414;
     } */
+
+code{
+  background-color:#blue  !important;
+}
+pre, code, kbd, samp{
+  background-color:ActiveCaption;
+}

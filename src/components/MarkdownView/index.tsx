@@ -13,7 +13,11 @@ type Props = {
     text: string
 }
 const MarkdownView:FC<Props> = (props) => {
-    const md = new MarkdownIt();
+    const md = new MarkdownIt({linkify: true});
+    // const iterator = require('markdown-it-for-inline');
+    // md.use(iterator, 'foo_replace', 'text', function (tokens: { [x: string]: { content: string; }; }, idx: string | number) {
+    //   tokens[idx].content = tokens[idx].content.replace(/foo/g, 'bar');
+    // })
     // md.use(prism)
     hljs.registerLanguage('javascript', hljsJavascriptSyntax);
     hljs.registerLanguage('python', hljsPythonSyntax);
@@ -33,6 +37,7 @@ const MarkdownView:FC<Props> = (props) => {
                 style={{
                     textAlign: 'left',
                 }}
+                className="fa"
                 />: null }
         </>
     )
