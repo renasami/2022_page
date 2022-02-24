@@ -8,24 +8,14 @@ export const courseList:Courses[] = [
         dir:"docker",
         lectures:[
             {
-                title: "1/4",
+                title: "1/2",
                 thumbnail:"",
                 index:0
             },
             {
-                title: "2/4",
+                title: "2/2",
                 thumbnail:"",
                 index:1
-            },
-            {
-                title: "3/4",
-                thumbnail:"",
-                index:2
-            },
-            {
-                title: "4/4",
-                thumbnail:"",
-                index:3
             }
         ]
     },
