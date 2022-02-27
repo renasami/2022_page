@@ -60,4 +60,35 @@ export const courseList:Courses[] = [
             }
         ]
     },
+    {
+        title: "stage3 フロント",
+        phase:"1",
+        index:2,
+        dir:"step3-f",
+        lectures:[
+            {
+                title: "1/2",
+                thumbnail:"",
+                index:0
+            },
+            {
+                title: "2/2",
+                thumbnail:"",
+                index:1
+            },
+        ]
+    },
+    {
+        title: "stage3 バックエンド",
+        phase:"1",
+        index:1,
+        dir:"step3-b",
+        lectures:[
+            {
+                title: "1/1",
+                thumbnail:"",
+                index:0
+            },
+        ]
+    },
 ]
