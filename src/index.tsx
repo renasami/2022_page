@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { initializeApp } from 'firebase/app';
-import { firebaseConfig, emulatorPorts } from './firebase/config';
+import { firebaseConfig } from './firebase/config';
 import { connectAuthEmulator } from "firebase/auth";
 import {connectFirestoreEmulator } from "firebase/firestore"
 import { connectStorageEmulator } from "firebase/storage"
@@ -13,11 +13,11 @@ import {auth, store, storage} from "./firebase"
 
 initializeApp(firebaseConfig)
 const localhost = "http://localhost:"
-if (window.location.hostname === "localhost") {
-  connectAuthEmulator(auth,localhost + emulatorPorts["auth"])
-  // connectFirestoreEmulator(store,localhost, Number(emulatorPorts["store"]))
-  connectStorageEmulator(storage,localhost, Number(emulatorPorts["storage"]))
-}
+// if (window.location.hostname === "localhost") {
+//   connectAuthEmulator(auth,localhost + emulatorPorts["auth"])
+//   // connectFirestoreEmulator(store,localhost, Number(emulatorPorts["store"]))
+//   connectStorageEmulator(storage,localhost, Number(emulatorPorts["storage"]))
+// }
 ReactDOM.render(
   <React.StrictMode>
     <App />
