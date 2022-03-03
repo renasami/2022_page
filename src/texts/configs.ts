@@ -100,20 +100,25 @@ export const courseList:Courses[] = [
         dir:"step3-b",
         lectures:[
             {
-                title: "1/3",
+                title: "1/4",
                 thumbnail:"",
                 index:0
             },
             {
-                title: "2/3",
+                title: "2/4",
                 thumbnail:"",
                 index:1
             },
             {
-                title: "3/3",
+                title: "3/4",
                 thumbnail:"",
                 index:2
             },
+            {
+                title: "4/4",
+                thumbnail:"",
+                index:3
+            }
         ]
     },
 ]
